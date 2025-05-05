@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav container-fluid justify-content-end me-4">
+              <a class="nav-link active" aria-current="page" href="home">Home</a>
+              <a class="nav-link active" href="#">About</a>
+              <a class="nav-link active" href="#">Services</a>
+              <a class="nav-link active" href="#">Team</a>
+              <a class="nav-link active" href="#">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <div class="w-75 mx-auto d-flex mt-5" id="home">
+        <div class="ms-2" data-aos="fade-right" data-aos-duration="1000">
+            <h3>"Just for Fun, Turns Out Great"</h3>
+            <p>Kami percaya setiap anak punya potensi luar biasa. Dengan teknologi sebagai bekal, dan ekstrakurikuler sebagai wadah, kami tumbuhkan generasi yang tak hanya cakap digital, tapi juga tangguh menghadapi zaman.</p>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="1000">
+            <img src="asset/img/bocchi1.gif" alt="bocchi1">
+        </div>
+    </div>
+
+    <div class="w-75 mx-auto d-flex mt-5">
+        <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+            <img src="asset/img/bocchi3.gif" alt="bocchi2" height="700px">
+        </div>
+        <div>
+            <h3></h3>
+        </div>
+    </div>
+
+    <div class="w-75 mx-auto mt-5" style="text-align: center;" data-aos="fade-up" data-aos-duration="1000">
+        <h3>What We Have Achieved So Far</h3>
+        <p>"Random Ideas, Real Results"</p>
+        <div class="d-flex justify-content-center mt-5">
+            <div>
+                <h1 style="color: rgb(11, 182, 182);" id="client">2</h1>
+                <h5>Client</h5>
+            </div>
+            <div class="ms-5">
+                <h1 style="color: rgb(11, 182, 182);" id="project">10</h1>
+                <h5>Project</h5>
+            </div>
+            <div class="ms-5">
+                <h1 style="color: rgb(11, 182, 182);" id="member">62</h1>
+                <h5>Member</h5>
+            </div>
+            <div class="ms-5">
+                <h1 style="color: rgb(11, 182, 182);" id="hour">12</h1>
+                <h5>Hour</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-75 mx-auto mt-5" style="text-align: center;">
+        <h3>Services</h3>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init(); // Inisialisasi AOS
+</script>
+<script src="https://cdn.jsdelivr.net/npm/countup.js@2.0.8/dist/countUp.umd.js"></script>
+<script>
+    const counters = {
+      client: new countUp.CountUp('client', 2),
+      project: new countUp.CountUp('project', 10),
+      member: new countUp.CountUp('member', 62),
+      hour: new countUp.CountUp('hour', 12)
+    };
+  
+    let hasAnimated = {
+      client: false,
+      project: false,
+      member: false,
+      hour: false
+    };
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        const counter = counters[id];
+  
+        if (entry.isIntersecting) {
+          if (!hasAnimated[id]) {
+            counter.reset();
+            counter.start();
+            hasAnimated[id] = true;
+          }
+        } else {
+          hasAnimated[id] = false;
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+  
+    // Observe semua elemen counter
+    observer.observe(document.getElementById('client'));
+    observer.observe(document.getElementById('project'));
+    observer.observe(document.getElementById('member'));
+    observer.observe(document.getElementById('hour'));
+  </script>
+  
+</body>
+</html>
